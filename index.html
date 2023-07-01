@@ -17,15 +17,28 @@
                 <div class="area-incomplete">
                     <p class="todo-title">incomplete items</p>
                     <ul class="todo-area">
-                        <li v-for="(todo, i) in todos" :key="i" class="list">
+                        <li v-for="(todo, i) in incompleteTodo" :key="i" class="list">
                             <span class="list-label">{{ todo.text }}</span>
+                            <span class="button-area">
+                                <button class="list-button button-done" @click="toggleIsDone(todo.id)">DONE</button>
+                                <button class="list-button button-delete" @click="deleteTodo(todo.id)">DELETE</button>
+                            </span>
                         </li>
+                    </ul>
+                </div>
+                <div class="area-complete">
+                    <p class="todo-title">complete items</p>
+                    <ul class="todo-area">
+                        <li v-for="(todo, i) in completeTodo" :key="i" class="list">
+                            <span class="list-label">{{ todo.text }}</span>
+                            <button class="list-button button-done" @click="toggleIsDone(todo.id)">RETURN</button>
+                            <button class="list-button button-delete" @click="deleteTodo(todo.id)">DELETE</button>
+                        </todo
                     </ul>
                 </div>
             </section>
         </article>
     </div>
-
 
     <!-- load Vue.js -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
