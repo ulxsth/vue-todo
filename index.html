@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODO</title>
+    <link rel="stylesheet" href="stylesheet/style.css">
 </head>
 <body>
     <div id="app">
         <article class="wrap">
             <section class="todo-form">
-                <input type="text" name="todo-text" class="input-text" placeholder="please input todo-text" :value="text" @input="inputText">
+                <input type="text" name="todo-text" class="input-text" :value="text" @input="inputText">
                 <button class="add-button" @click="addTodo">ADD TODO</button>
             </section>
 
@@ -31,8 +32,10 @@
                     <ul class="todo-area">
                         <li v-for="(todo, i) in completeTodo" :key="i" class="list">
                             <span class="list-label">{{ todo.text }}</span>
-                            <button class="list-button button-done" @click="toggleIsDone(todo.id)">RETURN</button>
-                            <button class="list-button button-delete" @click="deleteTodo(todo.id)">DELETE</button>
+                            <div class="button-area">
+                                <button class="list-button button-return" @click="toggleIsDone(todo.id)">RETURN</button>
+                                <button class="list-button button-delete" @click="deleteTodo(todo.id)">DELETE</button>
+                            </div>
                         </todo
                     </ul>
                 </div>
